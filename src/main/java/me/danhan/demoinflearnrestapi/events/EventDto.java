@@ -1,19 +1,15 @@
 package me.danhan.demoinflearnrestapi.events;
 
-import jakarta.persistence.*;
 import lombok.*;
-import me.danhan.demoinflearnrestapi.events.EventStatus;
 
 import java.time.LocalDateTime;
 
-@Builder @AllArgsConstructor @NoArgsConstructor
-@Getter @Setter @EqualsAndHashCode(of = "id")
-@Entity
-public class Event {
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class EventDto {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
     private String name;
     private String description;
     private LocalDateTime beginEnrollmentDateTime;
@@ -24,9 +20,5 @@ public class Event {
     private int basePrice; // (optional)
     private int maxPrice; // (optional)
     private int limitOfEnrollment;
-    private boolean offline;
-    private boolean free;
-    @Enumerated(EnumType.STRING) // 0,1,2로 저장해놓으면 나중에 순서가 바뀌었을 때 곤란할 수 있다.
-    private EventStatus eventStatus = EventStatus.DRAFT;
 
 }
