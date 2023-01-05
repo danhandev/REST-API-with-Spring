@@ -1,5 +1,6 @@
 package me.danhan.demoinflearnrestapi.events;
 
+import jakarta.persistence.*;
 import lombok.*;
 import me.danhan.demoinflearnrestapi.events.EventStatus;
 
@@ -7,8 +8,11 @@ import java.time.LocalDateTime;
 
 @Builder @AllArgsConstructor @NoArgsConstructor
 @Getter @Setter @EqualsAndHashCode(of = "id")
+@Entity
 public class Event {
 
+    @Id
+    @GeneratedValue
     private Integer id;
     private String name;
     private String description;
@@ -22,6 +26,7 @@ public class Event {
     private int limitOfEnrollment;
     private boolean offline;
     private boolean free;
+    @Enumerated(EnumType.STRING) // 0,1,2로 저장해놓으면 나중에 순서가 바뀌었을 때 곤란할 수 있다.
     private EventStatus eventStatus;
 
 }
