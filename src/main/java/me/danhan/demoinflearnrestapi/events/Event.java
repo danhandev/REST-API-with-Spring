@@ -1,14 +1,14 @@
 package me.danhan.demoinflearnrestapi.events;
 
 import lombok.*;
+import me.danhan.demoinflearnrestapi.events.EventStatus;
 
 import java.time.LocalDateTime;
 
-@Getter @Setter
-@EqualsAndHashCode(of = "id")
-@Builder @NoArgsConstructor
-@AllArgsConstructor
+@Builder @AllArgsConstructor @NoArgsConstructor
+@Getter @Setter @EqualsAndHashCode(of = "id")
 public class Event {
+
     private Integer id;
     private String name;
     private String description;
@@ -23,4 +23,5 @@ public class Event {
     private boolean offline;
     private boolean free;
     private EventStatus eventStatus;
+
 }
