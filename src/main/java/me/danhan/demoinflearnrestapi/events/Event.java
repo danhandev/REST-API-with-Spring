@@ -29,4 +29,18 @@ public class Event {
     @Enumerated(EnumType.STRING) // 0,1,2로 저장해놓으면 나중에 순서가 바뀌었을 때 곤란할 수 있다.
     private EventStatus eventStatus = EventStatus.DRAFT;
 
+    public void update() {
+        // Update free
+        if (this.basePrice == 0 && this.maxPrice == 0) {
+            this.free = true;
+        } else {
+            this.free = false;
+        }
+        // Update offline
+        if (this.location == null || this.location.isBlank()) {
+            this.offline = false;
+        } else {
+            this.offline = true;
+        }
+    }
 }
